@@ -1,0 +1,29 @@
+{
+    "name": "diablomedia/zendframework1-validate-ldap",
+    "description": "Zend Framework 1 Ldap component",
+    "type": "library",
+    "keywords": [
+        "framework",
+        "zf1"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.0.0",
+        "diablomedia/zendframework1-ldap": "*",
+        "diablomedia/zendframework1-validate": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zend_": "src/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.9.2"
+    },
+    "scripts": {
+        "phpstan": "phpstan analyze -l7 -c phpstan.neon --no-progress ./src --ansi"
+    }
+}
