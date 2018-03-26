@@ -14,23 +14,16 @@ branches:
   only:
     master
 
-before_install:
-  - travis_retry composer self-update
-
 install:
   - phpenv rehash
   - travis_retry composer install --no-interaction --prefer-source
 
 stages:
-  - test
   - phpstan analysis
   - test with coverage
 
 before_script:
   - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
-
-script:
-  - composer test
 
 jobs:
   fast_finish: true

@@ -12,8 +12,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.0.0",
-        "diablomedia/zendframework1-ldap": "*",
-        "diablomedia/zendframework1-validate": "*"
+        "diablomedia/zendframework1-ldap": "^1.0.0",
+        "diablomedia/zendframework1-validate": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
