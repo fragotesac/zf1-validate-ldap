@@ -18,9 +18,8 @@ install:
   - phpenv rehash
   - travis_retry composer install --no-interaction --prefer-source
 
-stages:
-  - phpstan analysis
-  - test with coverage
+script:
+  - composer phpstan
 
 before_script:
   - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
@@ -29,16 +28,3 @@ jobs:
   fast_finish: true
   allow_failures:
     - php: nightly
-  include:
-    - stage: phpstan analysis
-      php: 7.1
-      env: TMPDIR=/tmp USE_XDEBUG=false
-      script:
-        - composer phpstan
-    - stage: test with coverage
-      php: 7.1
-      env: TMPDIR=/tmp USE_XDEBUG=true
-      script:
-        - composer test-with-coverage
-      after_success:
-        - bash <(curl -s https://codecov.io/bash) -f ./clover.xml
