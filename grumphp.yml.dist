@@ -1,0 +1,12 @@
+# grumphp.yml
+parameters:
+    tasks:
+        composer:
+            strict: true
+        composer_require_checker: ~
+        phpcsfixer2:
+            allow_risky: true
+            config: .php_cs
+        phpstan:
+            level: 7
+            configuration: phpstan.neon

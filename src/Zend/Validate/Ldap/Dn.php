@@ -27,7 +27,6 @@
  */
 class Zend_Validate_Ldap_Dn extends Zend_Validate_Abstract
 {
-
     const MALFORMED = 'malformed';
     
     /**
@@ -45,10 +44,10 @@ class Zend_Validate_Ldap_Dn extends Zend_Validate_Abstract
      * Returns true if and only if $value is a valid DN.
      *
      * @param string $value The value to be validated.
-     * 
+     *
      * @return boolean
      */
-    public function isValid($value) 
+    public function isValid($value)
     {
         $valid = Zend_Ldap_Dn::checkDn($value);
         if ($valid === false) {

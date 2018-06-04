@@ -2,12 +2,6 @@ language: php
 
 sudo: false
 
-php:
-  - 7
-  - 7.1
-  - 7.2
-  - nightly
-
 env: TMPDIR=/tmp USE_XDEBUG=false
 
 branches:
@@ -18,13 +12,23 @@ install:
   - phpenv rehash
   - travis_retry composer install --no-interaction --prefer-source
 
-script:
-  - composer phpstan
+stages:
+  - style check
+  - phpstan analysis
 
 before_script:
   - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
 
 jobs:
   fast_finish: true
-  allow_failures:
-    - php: nightly
+  include:
+    - stage: style check
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=false
+      script:
+        - composer style-check
+    - stage: phpstan analysis
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=false
+      script:
+        - composer phpstan
