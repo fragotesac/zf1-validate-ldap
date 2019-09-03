@@ -23,7 +23,7 @@
     "require-dev": {
         "phpstan/phpstan": "^0.11.2",
         "friendsofphp/php-cs-fixer": "^2.11",
-        "maglnet/composer-require-checker": "^1.1.0",
+        "maglnet/composer-require-checker": "^1.1.0 || ^2.0.0",
         "phpro/grumphp": "^0.14.0"
     },
     "scripts": {
