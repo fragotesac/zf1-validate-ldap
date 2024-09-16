@@ -1,5 +1,5 @@
 {
-    "name": "diablomedia/zendframework1-validate-ldap",
+    "name": "fragotesac/zf1-validate-ldap",
     "description": "Zend Framework 1 Ldap validation component",
     "type": "library",
     "keywords": [
